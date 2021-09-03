@@ -41,3 +41,9 @@ class BaseProject:
     resources: Dict[str, Resource] = field(default=None)
     versions_control: VersionsControl = field(default=None)
     participants: List[AccountWithPolicies] = field(default=None)
+
+    def __post_init__(self):
+        if not self.title:
+            self.title = "Project title"
+        if not self.description:
+            self.description = "This is project description..."

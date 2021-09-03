@@ -34,16 +34,10 @@ class AccountWithPolicies:
 @dataclass
 class BaseProject:
     project_id: str = field(default_factory=uuid_id)
-    title: str = field(default=None)
-    description: str = field(default=None)
+    title: str = field(default="Project title")
+    description: str = field(default="This is project description...")
     last_updated: str = field(default=None)
     entity_created_date: str = field(default_factory=current_datetime_str)
     resources: Dict[str, Resource] = field(default=None)
     versions_control: VersionsControl = field(default=None)
     participants: List[AccountWithPolicies] = field(default=None)
-
-    def __post_init__(self):
-        if not self.title:
-            self.title = "Project title"
-        if not self.description:
-            self.description = "This is project description..."

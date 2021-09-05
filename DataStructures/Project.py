@@ -38,6 +38,6 @@ class BaseProject:
     description: str = field(default="This is project description...")
     last_updated: str = field(default=None)
     entity_created_date: str = field(default_factory=current_datetime_str)
-    resources: Dict[str, Resource] = field(default={})
+    resources: Dict[str, Resource] = field(default_factory={})
     versions_control: VersionsControl = field(default=None)
-    participants: Dict[str, AccountWithPolicies] = field(default={})
+    participants: Dict[str, AccountWithPolicies] = field(default_factory={})

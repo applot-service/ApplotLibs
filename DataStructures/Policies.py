@@ -3,9 +3,14 @@ from dataclasses import dataclass, field
 
 @dataclass
 class Project:
-    manage_project: bool = field(default=False)
+    edit_project: bool = field(default=False)
     delete_project: bool = field(default=False)
     compile_project: bool = field(default=False)
+    create_branch: bool = field(default=False)
+    edit_branch: bool = field(default=False)
+    delete_branch: bool = field(default=False)
+    merge_branch: bool = field(default=False)
+
 
 
 @dataclass

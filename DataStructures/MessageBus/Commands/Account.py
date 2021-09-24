@@ -1,24 +1,29 @@
 from dataclasses import dataclass, field
 from ApplotLibs.DataStructures.MessageBus import Command
+from pathlib import Path
+
+_COMMAND_TYPE = Path(__file__).stem
 
 
 @dataclass
 class SignIn(Command):
+    command_type: str = _COMMAND_TYPE
+
     email: str = field(default=None)
     password: str = field(default=None)
-    command: str = field(default="account. sign in")
 
 
 @dataclass
 class SignOut(Command):
-    command: str = field(default="account. sign out")
+    command_type: str = _COMMAND_TYPE
 
 
 @dataclass
 class Register(Command):
+    command_type: str = _COMMAND_TYPE
+
     first_name: str = field(default=None)
     last_name: str = field(default=None)
     company: str = field(default=None)
     email: str = field(default=None)
     password: str = field(default=None)
-    command: str = field(default="account. register")

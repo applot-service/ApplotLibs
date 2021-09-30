@@ -16,6 +16,7 @@ class SignIn(Command):
 @dataclass
 class SignOut(Command):
     command_type: str = _COMMAND_TYPE
+    local: bool = True
 
 
 @dataclass

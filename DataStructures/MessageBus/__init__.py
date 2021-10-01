@@ -1,5 +1,9 @@
 from dataclasses import dataclass, field, asdict, fields
-from ApplotLibs.Utilities.helpers import uuid_id, current_datetime_str
+from ApplotLibs.Utilities.helpers import (
+    uuid_id,
+    current_datetime_str,
+    create_class_from_required_fields
+)
 
 
 @dataclass
@@ -18,9 +22,7 @@ class Event:
 
     @classmethod
     def from_dict(cls, source: dict):
-        return cls(**{
-            key: value for key, value in source.items() if key in fields(cls)
-        })
+        return create_class_from_required_fields(cls, source)
 
 
 
@@ -41,6 +43,4 @@ class Command:
 
     @classmethod
     def from_dict(cls, source: dict):
-        return cls(**{
-            key: value for key, value in source.items() if key in fields(cls)
-        })
+        return create_class_from_required_fields(cls, source)
